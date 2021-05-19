@@ -108,16 +108,6 @@ def circle_draw():
 def triangle_draw():
     bot.SpeedTo(150)
 
-#############################################  UDP SETTINGS  #################################################################
-port = 5000
-SIZE = 128
-
-DomIP = '10.48.56.122' # Laptop 1 IP - Dom
-SubIP = '10.48.8.252' # Laptop 2 IP - Sub
-
-def UDP_send(IP,port,message):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) #IPv4 DNS server - UDP protocol
-    sock.sendto(bytes(message, "utf-8"), (IP, port))#self, data, address
 
 ############################################# CAMERA SETTINGS #################################################################
 
@@ -153,30 +143,14 @@ start = time.time()
 
 ########################################### INTERACTION SETTINGS  ############################################################
 # Interaction settings
-context_points_right = []
-context_points_left = []
 vertical_dir = (1.0, 0.0)
-
-path = r'C:\Users\mogha\PycharmProjects\Camera_Calibration\posenet-pytorch\toolpath.yaml'
-cv_file = cv2.FileStorage(path, cv2.FILE_STORAGE_WRITE)
-
-
-
-
-
-cv_file.release()
-
-collecting_points_right = False
-collecting_points_left = False
-right_stop = False
-left_stop = False
-stop = False
 
 ########################################### START COMMANDS  #################################################################
 #### Run these before code start
 # bot.AxesTo(0, 0, 0, 0, 90, 0)
 # bot.TransformTo(start_point)
 
+stop = False
 
 ###############################################   MAIN    ##################################################################
 if __name__ == '__main__':
